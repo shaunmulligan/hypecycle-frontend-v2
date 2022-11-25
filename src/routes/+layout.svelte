@@ -1,5 +1,6 @@
 <script lang="ts">
     import Menu from "$lib/components/Menu.svelte";
+    import { page } from '$app/stores';
   
     import { setupIonicSvelte } from "ionic-svelte";
   
@@ -9,6 +10,7 @@
     import Toolbar from "$lib/components/Toolbar.svelte";
     export let data; //This comes from layout.ts
     let state = data.wsStore; //Wesocket Store with default values
+    
 </script>
 
 <ion-app>
@@ -16,7 +18,7 @@
     <Menu />
     <div class="ion-page" id="main">
       <ion-header>
-        <Toolbar title="History" state={$state}/>
+        <Toolbar title={$page.data.title} state={$state}/>
       </ion-header>
       <!-- All our other content gets put here -->
       <slot /> 
