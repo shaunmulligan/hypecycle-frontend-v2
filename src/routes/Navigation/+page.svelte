@@ -1,7 +1,7 @@
 <script>
 import { LeafletMap, TileLayer, Marker, GeoJSON } from 'svelte-leafletjs';
 
-const updateTrackInterval = 2000;
+const updateTrackInterval = 1000; //Update every second might be heavy on browser perf
 
 let mapOptions = {
     center: [41.483561819705194, 2.214374347050403],
@@ -18,11 +18,11 @@ const tileLayerOptions = {
 
 const geoJsonOptions = {
     style: function(geoJsonFeature) {
-        console.log('style', geoJsonFeature);
+        // console.log('style', geoJsonFeature);
         return {};
     },
     onEachFeature: function(feature, layer) {
-        console.log('onEachFeature', feature, layer);
+        // console.log('onEachFeature', feature, layer);
     },
 };
 
@@ -39,12 +39,12 @@ routeReloadTimer()
 </script>
 
 <div class="map" >
-<LeafletMap bind:this={leafletMap} options={mapOptions = {center: [$myStore.latitude, $myStore.longitude], zoom: 17}} >
+<LeafletMap bind:this={leafletMap} options={mapOptions = {center: [$myStore.latitude, $myStore.longitude], zoom: 18}} >
     <TileLayer url={tileUrl} options={tileLayerOptions} />
     <Marker latLng={[$myStore.latitude, $myStore.longitude]}/>
     
     {#key updateTrack} 
-        <GeoJSON url="/track.geojson" options={geoJsonOptions}/>
+        <GeoJSON url="http://localhost:8001/geojson/file" options={geoJsonOptions}/>
     {/key}
 </LeafletMap>
 </div>

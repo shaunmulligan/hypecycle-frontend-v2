@@ -1,6 +1,15 @@
 const reopenTimeouts = [2000, 5000, 10000, 30000, 60000];
 const defaultUrl = "ws://localhost:8001/ws"
-const defautlInitialValue = { power: 0, speed: 0, elapsedTime: 0, cadence: 0, avgSpeed: 0 ,gps_fix: 0};
+const defautlInitialValue = { 
+  power: 0, 
+  speed: 0, 
+  elapsedTime: 0, 
+  cadence: 0, 
+  avgSpeed: 0 ,
+  gps_fix: 0,
+  latitude: 41.483561819705194,
+  longitude: 2.214374347050403
+};
 /**
  * Create a writable store based on a web-socket.
  * Data is transferred as JSON.
