@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess';
+import { isoImport } from 'vite-plugin-iso-import';
 
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -16,7 +17,6 @@ const config = {
 		alias: {
 			'$ionic': 'src/lib/ionic',
 		}
-
 	}
 };
 

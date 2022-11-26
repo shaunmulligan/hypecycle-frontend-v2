@@ -38,7 +38,9 @@
 	"type": "module",
 	"dependencies": {
 		"@ionic/core": "^6.3.0",
+		"ionic-svelte": "^0.5.8",
 		"localforage": "^1.10.0",
-		"ionic-svelte": "^0.5.8"
+		"svelte-leafletjs": "^0.9.1",
+		"vite-plugin-iso-import": "^0.1.3"
 	}
 }
