@@ -1,5 +1,5 @@
 <script>
-    import { videocam, camera, stop } from "ionicons/icons";
+    import { videocam, camera, stop, trash } from "ionicons/icons";
     import { onMount } from "svelte";
     export let data;
     let state = data.wsStore
@@ -44,6 +44,15 @@
         console.log(videos)
         return videos
     }
+
+    async function deleteVideos() {
+        const response = await fetch('http://localhost:8001/camera/videos/', {
+			    method: 'Delete'
+            }) // TODO: Need to not hardcode this
+        console.log(response)
+        videos = await getVideoList()
+        return videos
+    }
     
     const fetchVideoList = (async () => {
         videos = await getVideoList()
@@ -51,11 +60,10 @@
     })()
 
     onMount(() => {
-    async function foo() {
+    async function loadVideos() {
         videos = await getVideoList()
     }
-
-    foo();
+    loadVideos();
 
     });
 </script>
@@ -76,17 +84,76 @@
         </ion-card-content>
     </ion-card>
     <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <ion-fab-button color="primary" on:click={ toggleRecord }>
             <ion-icon icon={recordingIcons[recordingState]} />
         </ion-fab-button>
     </ion-fab>
     <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <ion-fab-button color="danger" on:click={ getPhoto }>
             <ion-icon icon={camera} />
         </ion-fab-button>
     </ion-fab>
     <ion-list>
-        <ion-list-header>Recent Recordings</ion-list-header>
+        <ion-list-header>
+            <ion-toolbar>
+                <ion-title>Recent Recordings</ion-title>
+                <ion-button slot="end" on:click={ deleteVideos }>
+					<ion-icon slot="icon-only" color="danger" icon={trash} />
+				</ion-button>
+            </ion-toolbar>
+        </ion-list-header>
+        {#if videos.length === 0}
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-skeleton-text />
+            </ion-thumbnail>
+            <ion-label>
+                <h3>
+                    <ion-skeleton-text animated style="width: 80%" />
+                </h3>
+                <p>
+                    <ion-skeleton-text animated style="width: 60%" />
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 30%" />
+                </p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-skeleton-text />
+            </ion-thumbnail>
+            <ion-label>
+                <h3>
+                    <ion-skeleton-text animated style="width: 80%" />
+                </h3>
+                <p>
+                    <ion-skeleton-text animated style="width: 60%" />
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 30%" />
+                </p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-skeleton-text />
+            </ion-thumbnail>
+            <ion-label>
+                <h3>
+                    <ion-skeleton-text animated style="width: 80%" />
+                </h3>
+                <p>
+                    <ion-skeleton-text animated style="width: 60%" />
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 30%" />
+                </p>
+            </ion-label>
+        </ion-item>
+        {:else}
             {#each videos as video}
                 <ion-item>
                     <ion-label>
@@ -94,6 +161,7 @@
                     </ion-label>
                 </ion-item>
             {/each}
+        {/if}
     </ion-list>
 </ion-content>
 
