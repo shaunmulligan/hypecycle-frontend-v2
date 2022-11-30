@@ -8,7 +8,7 @@
 		"url": "https://github.com/Tommertom/svelte-ionic-npm.git"
 	},
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --host",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -39,8 +39,9 @@
 	"dependencies": {
 		"@ionic/core": "^6.3.0",
 		"ionic-svelte": "^0.5.8",
+		"leaflet.offline": "^3.0.0-rc.4",
 		"localforage": "^1.10.0",
-		"svelte-leafletjs": "^0.9.1",
+		"svelte-leafletjs": "https://github.com/ngyewch/svelte-leaflet",
 		"vite-plugin-iso-import": "^0.1.3"
 	}
 }
