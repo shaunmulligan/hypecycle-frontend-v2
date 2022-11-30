@@ -30,9 +30,15 @@ export let data;
 let leafletMap;
 let myStore = data.wsStore;
 let updateTrack = true // This is tied to the #key so that we can periodically update the GeoJSON component.
+let geoData = {"type": "FeatureCollection", "features": []}
 function routeReloadTimer() {
             let timer = setInterval(function() {
                 updateTrack = !updateTrack
+                fetch("http://localhost:8001/geojson/")
+                .then((response) => response.json())
+                .then((data) => {
+                    geoData = data
+                });
             }, updateTrackInterval);
         }
 routeReloadTimer()
@@ -45,7 +51,7 @@ routeReloadTimer()
     
     {#key updateTrack} 
         <!-- TODO: Probably shouldn't hardcode the URL here -->
-        <GeoJSON url="http://localhost:8001/geojson/file" options={geoJsonOptions}/>
+        <GeoJSON data={geoData} options={geoJsonOptions}/>
     {/key}
 </LeafletMap>
 </div>
