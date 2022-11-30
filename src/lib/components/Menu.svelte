@@ -7,6 +7,7 @@
     archive,
     bicycle,
     analytics,
+    camera,
   } from "ionicons/icons";
   import { onMount } from "svelte";
 
@@ -15,6 +16,7 @@
     { title: "Analytics", url: "Analytics", icon: analytics },
     { title: "Navigation", url: "Navigation", icon: paperPlane },
     { title: "History", url: "History", icon: archive },
+    { title: "Camera", url: "Camera", icon: camera},
     { title: "Settings", url: "Settings", icon: settings },
   ];
 
