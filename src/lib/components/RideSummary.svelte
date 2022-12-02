@@ -33,6 +33,7 @@
 		await modal.present();
 	};
 </script>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <ion-item on:click={showModalController}>
     <ion-icon slot="start" icon={bicycle} />
     <ion-label>

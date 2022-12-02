@@ -99,6 +99,7 @@
         <ion-list-header>
             <ion-toolbar>
                 <ion-title>Recent Recordings</ion-title>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <ion-button slot="end" on:click={ deleteVideos }>
 					<ion-icon slot="icon-only" color="danger" icon={trash} />
 				</ion-button>

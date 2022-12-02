@@ -26,6 +26,7 @@
 	<ion-toolbar>
 		<ion-title>{ride.name} - {getStartDate(ride.start_time)}</ion-title>
 		<ion-buttons slot="end">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<ion-button on:click={closeOverlay}>Close</ion-button>
 		</ion-buttons>
 	</ion-toolbar>

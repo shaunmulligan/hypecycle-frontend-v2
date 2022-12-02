@@ -61,6 +61,7 @@
 	<ion-toolbar>
 		<ion-title>Devices Found</ion-title>
 		<ion-buttons slot="end">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<ion-button on:click={closeOverlay}>Close</ion-button>
 		</ion-buttons>
 	</ion-toolbar>
@@ -83,6 +84,7 @@
 			</ion-item>
 		{/each}
 	</ion-list>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<ion-button expand="full" color="primary" size="large" on:click={savePairingList}>
         Pair BLE Devices
     </ion-button>
