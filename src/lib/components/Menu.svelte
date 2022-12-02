@@ -30,7 +30,7 @@
   });
 </script>
 
-<ion-menu content-id="main" menu-id="mainmenu">
+<ion-menu content-id="main" menu-id="mainmenu" mode="ios">
   <ion-content class="ion-padding">
     <ion-list id="inbox-list">
       <ion-list-header>HypeCycle</ion-list-header>

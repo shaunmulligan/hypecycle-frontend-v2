@@ -75,7 +75,7 @@
 					<h2>{device.name}</h2>
 					<p>{device.address}</p>
 				</ion-label>
-				<ion-checkbox
+				<ion-checkbox mode="ios"
 						value={device}
 						color="primary"
 						slot="end"

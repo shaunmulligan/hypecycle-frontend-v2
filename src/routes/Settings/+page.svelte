@@ -118,22 +118,22 @@
         <ion-item>
             <ion-icon slot="start" icon={wifi}></ion-icon>
             <ion-label>Wifi</ion-label>
-            <ion-toggle checked={settings.wifi_enabled} on:ionChange={setWifiState}></ion-toggle>
+            <ion-toggle checked={settings.wifi_enabled} on:ionChange={setWifiState} mode="ios"></ion-toggle>
         </ion-item>
         <ion-item>
             <ion-icon slot="start" icon={bluetooth}></ion-icon>
             <ion-label>Bluetooth</ion-label>
-            <ion-toggle checked={settings.bluetooth_enabled} on:ionChange={setBluetoothState}></ion-toggle>
+            <ion-toggle checked={settings.bluetooth_enabled} on:ionChange={setBluetoothState} mode="ios"></ion-toggle>
         </ion-item>
         <ion-item>
             <ion-icon slot="start" icon={cloudUpload}></ion-icon>
             <ion-label>Auto Upload</ion-label>
-            <ion-toggle checked={settings.upload_enabled} on:ionChange={setAutoUploadState}></ion-toggle>
+            <ion-toggle checked={settings.upload_enabled} on:ionChange={setAutoUploadState} mode="ios"></ion-toggle>
         </ion-item>
         <ion-item>
             <ion-icon slot="start" icon={sunny}></ion-icon>
             <ion-label>Lights</ion-label>
-            <ion-toggle checked={settings.lights_enabled} on:ionChange={setLightState}></ion-toggle>
+            <ion-toggle checked={settings.lights_enabled} on:ionChange={setLightState} mode="ios"></ion-toggle>
         </ion-item>
         <ion-item-divider/>
     </ion-list>
